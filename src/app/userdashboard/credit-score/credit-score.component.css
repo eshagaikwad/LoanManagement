@@ -1,0 +1,78 @@
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  h2{
+    text-align: center;
+  }
+  .spacer
+  {
+    margin-top: 89px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  input {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .mt-3 {
+    margin-top: 20px;
+  }
+  .navbar-text i {
+    margin-right: 5px; /* Add some space between the icon and text */
+    font-size: 1.2em;  /* Adjust icon size */
+  }
+  h5 {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #6c757d;
+    text-align: center;
+  }
+  
+  h5
+  {
+    text-align: center;
+  }
+  @media (max-width: 576px) {
+    form {
+      padding: 15px;
+    }
+  
+    h5 {
+      font-size: 1.1rem;
+      text-align: center;
+    }
+  }
+  

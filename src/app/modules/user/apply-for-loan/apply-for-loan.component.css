@@ -1,0 +1,150 @@
+
+.spacer
+{
+  margin-top: 89px;
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* Modern font */
+  background-color: #eef2f3; /* Light background for contrast */
+  margin: 0;
+  padding: 0;
+}
+
+
+.loan-application {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+  padding: 30px;
+  margin: 20px auto; 
+  max-width: 600px; 
+  transition: transform 0.2s;
+}
+
+.loan-application:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Heading Styles */
+h2 {
+  color: #3b3b3b; /* Darker shade for better readability */
+  margin-bottom: 15px;
+  font-size: 24px; /* Larger font size */
+}
+
+/* Button Styles */
+.fancy-button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 25px;
+  font-size: 18px; /* Larger font for buttons */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  text-transform: uppercase; /* Uppercase text for buttons */
+}
+
+.fancy-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge button */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Shadow effect on hover */
+}
+
+/* Modal Styles */
+.modal-header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  border-top-left-radius: 10px; /* Softer rounded corners */
+  border-top-right-radius: 10px;
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px; /* More space between inputs */
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="number"] {
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounded edges */
+  padding: 12px;
+  width: 100%;
+  transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+  border-color: #007bff; /* Bootstrap primary color */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Focus shadow */
+}
+
+/* Button Styles for Modal */
+.btn-success {
+  background-color: #28a745; /* Bootstrap success color */
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+  background-color: #218838; /* Darker shade on hover */
+}
+
+/* Eligibility Criteria and Loan Schemes Styles */
+.eligibility-criteria, .loan-schemes {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+}
+
+h3 {
+  color: #3b3b3b;
+  margin-bottom: 15px;
+  font-size: 20px; /* Slightly larger for subheadings */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #f8f9fa; /* Light gray for list items */
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+li:hover {
+  background-color: #e2e6ea; /* Slightly darker on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .loan-application, .eligibility-criteria, .loan-schemes {
+      padding: 20px; /* Reduce padding on smaller screens */
+      margin: 10px; /* Reduce margins */
+  }
+
+  .fancy-button {
+      padding: 10px 20px; /* Adjust button size */
+      font-size: 16px; /* Smaller font size */
+  }
+}

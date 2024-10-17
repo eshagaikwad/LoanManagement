@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">LoanHub</a>
+    <div class="navbar-collapse collapse justify-content-end">
+      <div class="navbar-text me-3">
+        <i class="fas fa-user"></i> 
+        Welcome, {{ userName }}!
+      </div>
+      <button class="btn btn-outline-light" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="spacer"></div>
+
+<!-- emi-calculator.component.html -->
+<section class="emi-calculator-section">
+  <h2>EMI Calculator</h2>
+
+  <div class="calculator-form">
+    <form [formGroup]="emiCalculatorForm" (ngSubmit)="calculateEMI()">
+      
+      <!-- Loan Amount -->
+      <div class="form-group">
+        <label for="loanAmount">Loan Amount (₹): {{ emiCalculatorForm.get('loanAmount')?.value | currency: 'INR':'symbol' }}</label>
+        <input 
+          type="range" 
+          id="loanAmount" 
+          formControlName="loanAmount" 
+          min="10000" 
+          max="10000000" 
+          step="10000" />
+        <span>{{ emiCalculatorForm.get('loanAmount')?.value | currency: 'INR':'symbol' }}</span>
+        <div *ngIf="emiCalculatorForm.get('loanAmount')?.invalid && (emiCalculatorForm.get('loanAmount')?.touched || emiCalculatorForm.get('loanAmount')?.dirty)" class="text-danger">
+          <small *ngIf="emiCalculatorForm.get('loanAmount')?.errors?.['required']">Loan Amount is required.</small>
+          <small *ngIf="emiCalculatorForm.get('loanAmount')?.errors?.['min']">Loan Amount must be at least ₹10,000.</small>
+        </div>
+      </div>
+
+      <!-- Interest Rate -->
+      <div class="form-group">
+        <label for="interestRate">Interest Rate (%): {{ emiCalculatorForm.get('interestRate')?.value }}%</label>
+        <input 
+          type="range" 
+          id="interestRate" 
+          formControlName="interestRate" 
+          min="1" 
+          max="20" 
+          step="0.1" />
+        <span>{{ emiCalculatorForm.get('interestRate')?.value }}%</span>
+        <div *ngIf="emiCalculatorForm.get('interestRate')?.invalid && (emiCalculatorForm.get('interestRate')?.touched || emiCalculatorForm.get('interestRate')?.dirty)" class="text-danger">
+          <small *ngIf="emiCalculatorForm.get('interestRate')?.errors?.['required']">Interest Rate is required.</small>
+          <small *ngIf="emiCalculatorForm.get('interestRate')?.errors?.['min']">Interest Rate must be at least 1%.</small>
+        </div>
+      </div>
+
+      <!-- Loan Tenure -->
+      <div class="form-group">
+        <label for="loanTenure">Loan Tenure (Years): {{ emiCalculatorForm.get('loanTenure')?.value }} years</label>
+        <input 
+          type="range" 
+          id="loanTenure" 
+          formControlName="loanTenure" 
+          min="1" 
+          max="30" 
+          step="1" />
+        <span>{{ emiCalculatorForm.get('loanTenure')?.value }} years</span>
+        <div *ngIf="emiCalculatorForm.get('loanTenure')?.invalid && (emiCalculatorForm.get('loanTenure')?.touched || emiCalculatorForm.get('loanTenure')?.dirty)" class="text-danger">
+          <small *ngIf="emiCalculatorForm.get('loanTenure')?.errors?.['required']">Loan Tenure is required.</small>
+          <small *ngIf="emiCalculatorForm.get('loanTenure')?.errors?.['min']">Loan Tenure must be at least 1 year.</small>
+        </div>
+      </div>
+
+      <!-- EMI Result -->
+      <div class="result" *ngIf="emi">
+        <h3>Monthly EMI: {{ emi | currency: 'INR':'symbol' }}</h3>
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary" [disabled]="emiCalculatorForm.invalid">Calculate EMI</button>
+        <button routerLink="/dashboard" class="btn btn-secondary">Back to Dashboard</button>
+      </div>
+      
+      <div *ngIf="errorMessage" class="error-message text-danger">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="success-message text-success">{{ successMessage }}</div>
+    </form>
+  </div>
+</section>

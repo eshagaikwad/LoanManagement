@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">LoanHub</a>
+    <div class="navbar-collapse collapse justify-content-end">
+      <div class="navbar-text me-3">
+        <i class="fas fa-user"></i> 
+        Welcome, {{ userName }} !
+      </div>
+      <button class="btn btn-outline-light" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h2 class="text-center">Loan Officers</h2>
+
+  <!-- Search Input -->
+  <div class="mb-3">
+      <input
+          type="text"
+          class="form-control"
+          placeholder="Search loan officers"
+          [(ngModel)]="searchTerm"
+          (input)="searchLoanOfficers()"
+      />
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message text-danger">{{ errorMessage }}</div>
+
+  <table class="table table-striped mt-4" *ngIf="loanOfficers.length > 0">
+      <thead>
+          <tr>
+              <th>Sr. No</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Active Status</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let officer of paginatedLoanOfficers; let i = index;"
+              [ngClass]="{'table-success': officer.isActive, 'table-danger': !officer.isActive}">
+              <td>{{ i + 1 }}</td>
+              <td>{{ officer.loanOfficerName }}</td>
+              <td>{{ officer.loanOfficerEmail }}</td>
+              <td>{{ officer.loanOfficerPhone }}</td>
+              <td>{{ officer.isActive ? 'Active' : 'Inactive' }}</td>
+              <td>
+                  <button class="btn btn-danger" (click)="deleteOfficer(officer.loanOfficerId)">Delete</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+
+  <div *ngIf="paginatedLoanOfficers.length === 0" class="mt-4">
+      <p>No loan officers found.</p>
+  </div>
+
+  <div class="pagination mt-4">
+      <button class="btn btn-secondary" [disabled]="page === 1" (click)="previousPage()">
+          <i class="fas fa-arrow-left"></i>
+      </button>
+      <span class="mx-2">Page {{ page }} of {{ totalPages }}</span>
+      <button class="btn btn-secondary" [disabled]="page === totalPages" (click)="nextPage()">
+          <i class="fas fa-arrow-right"></i>
+      </button>
+  </div>
+
+  <div class="text-center mt-4">
+      <button routerLink="/admin" class="btn btn-secondary">
+          Back to Dashboard
+      </button>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.container {
+    font-size: large;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .success-message {
+    color: green;
+    margin-top: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .btn-primary {
+    width: 100%;
+  }
+  .spacer{
+    margin-top: 89px;
+  }
+  

@@ -1,0 +1,37 @@
+.spacer
+{
+    margin-top: 30px;
+}
+
+.emi-calculator-section {
+    font-size: large;
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.result h3 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #007bff;
+}

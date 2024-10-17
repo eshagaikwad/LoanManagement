@@ -1,0 +1,366 @@
+/* Hero Section */
+.hero-section {
+    background-image: url('/assets/LoanHub.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+  }
+  .navbar {
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    width: 100%; 
+    z-index: 1000; 
+    transition: background-color 0.3s; 
+}
+
+.hero-section {
+    margin-top: 80px; 
+}
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .cta-button {
+    background-color:  #007bff;;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  .cta-button:hover {
+    background-color:  #007bff;;
+  }
+  
+  /* Features Section */
+  .features-section {
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .feature-card {
+    width: 30%;
+    background: #f9f9f9;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .feature-card:hover {
+    transform: scale(1.05);
+  }
+  
+/* Testimonials Section */
+.testimonials-section {
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 50px 0; /* Padding for spacing */
+    text-align: center; /* Centering the text */
+}
+
+.testimonials-section h2 {
+    font-size: 2.5rem; /* Larger font size for the heading */
+    margin-bottom: 40px; /* Space below the heading */
+    color: #333; /* Dark color for better readability */
+}
+
+.testimonials {
+    display: flex; /* Flexbox for responsive layout */
+    flex-direction: row; /* Align cards in a row */
+    justify-content: center; /* Center cards horizontally */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 20px; /* Space between testimonials */
+}
+
+.testimonial-card {
+    background-color: #ffffff; /* White background for the cards */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    padding: 20px; /* Padding inside cards */
+    max-width: 300px; /* Maximum width for the cards */
+    flex: 1 1 300px; /* Allow cards to grow and shrink */
+    transition: transform 0.3s ease; /* Animation for hover effect */
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.quote {
+    font-size: 1.2rem; /* Font size for quote text */
+    font-style: italic; /* Italic style for emphasis */
+    color: #555; /* Gray color for the quote */
+    margin-bottom: 15px; /* Space below the quote */
+}
+
+.author {
+    font-size: 1rem; /* Font size for the author's name */
+    color:  #007bff;; /* Bootstrap primary color */
+    font-weight: bold; /* Bold style for the author */
+}
+
+  
+  .footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .how-it-works-section {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .steps-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .step-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .step-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+  }
+  
+  .step-icon img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .step-content {
+    padding: 10px;
+  }
+  
+  .step-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .step-description {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  .step-number {
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 2rem;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .footer {
+    background-color: #2c3e50; 
+    color: white; 
+    padding: 40px 20px; 
+    text-align: left; 
+    font-family: 'Arial', sans-serif; 
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Space out columns */
+    flex-wrap: wrap; /* Wrap for smaller screens */
+}
+
+.footer-info, .footer-links, .footer-contact, .footer-loan-types {
+    flex: 1; /* Allow equal growth */
+    min-width: 200px;
+    margin: 20px; /* Margin for spacing */
+}
+
+.footer-info h4,
+.footer-links h4,
+.footer-contact h4,
+.footer-loan-types h4 {
+    font-size: 1.25em; /* Larger heading size */
+    border-bottom: 2px solid  #007bff;; 
+    padding-bottom: 10px; 
+    margin-bottom: 15px; 
+}
+
+.footer-links ul,
+.footer-loan-types ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.footer-links a,
+.footer-loan-types li {
+    color:  #007bff;; /* Bootstrap primary color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.footer-links a:hover,
+.footer-loan-types li:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #1abc9c; /* Change color on hover */
+}
+
+.footer-bottom {
+    margin-top: 20px; 
+    text-align: center; 
+    font-size: 0.9em; 
+    border-top: 1px solid #34495e;
+    padding-top: 15px; 
+}
+/* Loan Schemes Section */
+.loan-schemes-section {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef); /* Light gradient background */
+    padding: 60px 20px; /* Increased padding for better spacing */
+    text-align: center; /* Center text */
+}
+
+.loan-schemes-section h2 {
+    font-size: 2.8rem; /* Larger heading size */
+    margin-bottom: 30px; /* Reduced space below the heading */
+    color: #343a40; /* Dark color for heading */
+    font-weight: bold; /* Bold heading for emphasis */
+    text-transform: uppercase; /* Uppercase heading */
+    letter-spacing: 1px; /* Spacing between letters */
+}
+
+.loan-schemes {
+    display: flex; /* Flexbox for layout */
+    justify-content: center; /* Center items */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 30px; /* Space between cards */
+}
+
+.loan-scheme-card {
+    background-color: #ffffff; /* White background for cards */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+    padding: 25px; /* Padding inside cards */
+    max-width: 280px; /* Maximum width for cards */
+    text-align: center; /* Center text inside cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
+    position: relative; /* For pseudo-element positioning */
+}
+
+.loan-scheme-card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+.loan-scheme-icon {
+    width: 80px; /* Icon size */
+    height: 80px; /* Icon size */
+    margin-bottom: 15px; /* Space below the icon */
+    transition: transform 0.3s ease; /* Animation for icon hover */
+}
+
+.loan-scheme-card:hover .loan-scheme-icon {
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
+.loan-scheme-card h3 {
+    font-size: 1.5rem; 
+    color: #007bff; 
+    margin: 10px 0; 
+    font-weight: bold;
+}
+
+.loan-scheme-card p {
+    font-size: 1rem; 
+    color: #495057; 
+    margin-bottom: 15px; 
+}
+
+.cta-button {
+    display: inline-block; 
+    margin-top: 15px; 
+    padding: 12px 24px; 
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold; 
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+    transform: scale(1.05); 
+}
+
+
+.loan-schemes-section:hover {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef, #f1f3f5); 
+}
+
+
+.footer-bottom p {
+    margin: 5px 0; 
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Stack sections on small screens */
+        align-items: center; /* Center align items */
+    }
+    .footer-info, .footer-links, .footer-contact, .footer-loan-types {
+        margin: 10px 0; /* Margin for spacing */
+        text-align: center; /* Center text on smaller screens */
+    }
+}
+
+
+  
+  

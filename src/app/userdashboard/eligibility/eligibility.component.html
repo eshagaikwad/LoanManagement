@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">LoanHub</a>
+    <div class="navbar-collapse collapse justify-content-end">
+      <div class="navbar-text me-3">
+        <i class="fas fa-user"></i> 
+        Welcome, {{ userName }}!
+      </div>
+      <button class="btn btn-outline-light" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>Eligibility Criteria</h2>
+    </div>
+  </div>
+
+  <!-- Search Box -->
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">
+      <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+    </span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search..."
+      [(ngModel)]="searchTerm" 
+      aria-label="Search"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12">
+      <table *ngIf="paginatedLoanSchemes.length > 0" class="table table-striped table-hover table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Minimum Income</th>
+            <th scope="col">Minimum Age</th>
+            <th scope="col">Maximum Age</th>
+            <th scope="col">Minimum Credit Score</th>
+            <th scope="col">Employment Years</th>
+            <th scope="col">Required Documents</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let criteria of paginatedLoanSchemes; let i = index">
+            <td>{{ criteria.minimumIncome | currency }}</td>
+            <td>{{ criteria.minimumAge }}</td>
+            <td>{{ criteria.maximumAge }}</td>
+            <td>{{ criteria.minimumCreditScore }}</td>
+            <td>{{ criteria.employmentYears }}</td>
+            <td>{{ criteria.documents }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="paginatedLoanSchemes.length === 0" class="alert alert-info text-center">
+        No eligibility criteria available at the moment.
+      </div>
+
+      <div class="pagination mt-4">
+        <button 
+          class="btn btn-secondary" 
+          [disabled]="page === 1" 
+          (click)="previousPage()">
+          <i class="fas fa-arrow-left"></i> 
+        </button>
+        <span class="mx-2">Page {{ page }} of {{ totalPages }}</span>
+        <button 
+          class="btn btn-secondary" 
+          [disabled]="page === totalPages" 
+          (click)="nextPage()">
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <div class="text-center mt-4">
+        <button routerLink="/dashboard" class="btn btn-secondary">Back to Dashboard</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+.container {
+  /* Remove max-width to let the container occupy full width */
+  width: 100%; /* Make the container full-width */
+  padding: 0 15px; /* Add some padding to the sides */
+}
+
+.error-message {
+  margin-bottom: 20px; /* Space below error message */
+  font-weight: bold; /* Make error message bold */
+}
+
+.custom-active {
+  background-color: lightgreen;
+}
+
+.custom-inactive {
+  background-color: lightcoral;
+}
+
+.table {
+  width: 100%; /* Make the table full width */
+  margin-top: 20px;
+  border-collapse: collapse;
+  border-radius: 8px; /* Rounded corners for the table */
+  overflow: hidden; /* Ensures rounded corners apply */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow for a more pronounced effect */
+}
+
+/* Header styles */
+.table thead {
+  background-color: #007bff; /* Bootstrap primary color for header */
+  color: white; /* White text color */
+}
+
+/* Header cells */
+.table th {
+  padding: 15px; /* Spacing within header cells */
+  font-weight: 600; /* Semi-bold text for headers */
+  text-align: left; /* Align text to the left */
+  border-bottom: 2px solid #0056b3; /* Darker border at the bottom */
+}
+
+/* Body styles */
+.table tbody tr {
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Even rows */
+.table tbody tr:nth-child(even) {
+  background-color: #f2f9ff; /* Light blue for even rows */
+}
+
+/* Hover effect for rows */
+.table tbody tr:hover {
+  background-color: #e9f7ff; /* Slightly darker blue on hover */
+}
+
+/* Active status colors */
+.table-success {
+  background-color: #d4edda; /* Light green for active */
+  color: #155724; /* Dark green text */
+}
+
+.table-danger {
+  background-color: #f8d7da; /* Light red for inactive */
+  color: #721c24; /* Dark red text */
+}
+
+/* Table cells */
+.table td {
+  padding: 12px; /* Spacing within cells */
+  border-bottom: 1px solid #dee2e6; /* Subtle border for cell separation */
+}
+
+/* Center text in cells */
+.table td.text-center {
+  text-align: center; /* Center align specific cells */
+}
+
+/* Button styles */
+.btn {
+  padding: 8px 12px; /* Spacing */
+  border-radius: 5px; /* Rounded corners */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-weight: 500; /* Medium font weight for buttons */
+  transition: background-color 0.3s ease; /* Smooth transition for button */
+}
+
+/* Danger button */
+.btn-danger {
+  background-color: #dc3545; /* Red background */
+  color: white; /* White text */
+}
+
+/* Button hover effect */
+.btn-danger:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Back to Dashboard button */
+.btn-secondary {
+  background-color: #6c757d; /* Dark gray */
+  color: white; /* White text */
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268; /* Darker gray on hover */
+}
+
+/* Error message */
+.error-message {
+  margin-top: 15px;
+  font-weight: bold; /* Bold text for error messages */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .table {
+      font-size: 14px; /* Slightly smaller font on small screens */
+  }
+}

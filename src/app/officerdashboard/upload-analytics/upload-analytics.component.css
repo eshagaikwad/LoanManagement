@@ -1,0 +1,118 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa; /* Light background for contrast */
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.navbar-brand {
+  font-size: 24px; /* Larger brand text */
+}
+
+.navbar-text {
+  font-size: 16px; /* Slightly larger text for user greeting */
+}
+
+/* Form Container */
+form {
+  background-color: white; /* White background for form */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding around form */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  margin: 20px auto; /* Centering the form */
+  width: calc(100% - 40px); /* Full width minus margins */
+  max-width: 600px; /* Max width for form */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Form Headings */
+h2 {
+  text-align: center; /* Center the heading */
+  margin-bottom: 20px; /* Space below heading */
+  color: #343a40; /* Dark color for heading */
+}
+
+/* Form Labels */
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Input Styles */
+input[type="number"],
+input[type="text"] {
+  width: 100%; /* Full width for inputs */
+  padding: 10px; /* Padding for inputs */
+  border: 1px solid #ced4da; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  margin-bottom: 10px; /* Space below inputs */
+  font-size: 16px; /* Font size for inputs */
+}
+
+/* Error Message Styles */
+.error-message {
+  color: #dc3545; /* Red color for error messages */
+  font-size: 0.9em; /* Font size for error messages */
+  font-weight: bold; /* Bold error messages */
+/* Space above error messages */
+  /* text-align: center; Center the error message */
+}
+
+/* Success Message Styles */
+.success-message {
+  color: #28a745; /* Green color for success messages */
+  font-size: 1em; /* Font size for success messages */
+  font-weight: bold; /* Bold success messages */
+  margin-top: 15px; /* Space above success message */
+  text-align: center; /* Center the success message */
+}
+
+/* Button Styles */
+button[type="submit"] {
+  background-color: #007bff; /* Primary color for submit button */
+  color: white; /* White text */
+  padding: 10px 15px; /* Padding for button */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size for button */
+  display: block; /* Center button below the form */
+  margin: 20px auto 0; /* Center the button with auto margin */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Secondary button color */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding for back button */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268; /* Darker shade on hover */
+}
+
+/* Centered Button Container */
+.text-center {
+  text-align: center; /* Centered text */
+}
+
+/* Spacer */
+.spacer {
+  margin-top: 90px; /* Space for the top */
+}

@@ -1,0 +1,45 @@
+<div class="login-container">
+  <div class="login-box">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="input-group" [ngClass]="{'error': loginForm.controls['userName'].invalid && loginForm.controls['userName'].touched}">
+        <input type="text" placeholder="Username" formControlName="userName">
+        <div class="error-message" *ngIf="loginForm.controls['userName'].invalid && loginForm.controls['userName'].touched">
+          <span *ngIf="loginForm.controls['userName'].errors?.['required']">Username is required.</span>
+        </div>
+      </div>
+      <div class="input-group" [ngClass]="{'error': loginForm.controls['userPassword'].invalid && loginForm.controls['userPassword'].touched}">
+        <input type="password" placeholder="Password" formControlName="userPassword">
+        <div class="error-message" *ngIf="loginForm.controls['userPassword'].invalid && loginForm.controls['userPassword'].touched">
+          <span *ngIf="loginForm.controls['userPassword'].errors?.['required']">Password is required.</span>
+        </div>
+      </div>
+      <div class="input-group" [ngClass]="{'error': loginForm.controls['recaptcha'].invalid && loginForm.controls['recaptcha'].touched}">
+        <ngx-recaptcha2 
+          [siteKey]="siteKey"
+          formControlName="recaptcha">
+        </ngx-recaptcha2>
+        <div class="error-message" *ngIf="loginForm.controls['recaptcha'].invalid && loginForm.controls['recaptcha'].touched">
+          <span>Recaptcha is required.</span>
+      </div>
+      </div>
+      <div class="input-group">
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      </div>
+      <div class="form-footer">
+        <p>Don't have an account? <a routerLink="/register">Register here</a></p>
+      </div>
+      <div class="text-center mt-4">
+        <button 
+            routerLink="/home" 
+            class="btn btn-secondary" 
+            style="background-color: #6c757d; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Back to Dashboard
+        </button>
+    </div>
+    </form>
+
+     <!-- Error message display -->
+     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </div>
+</div>

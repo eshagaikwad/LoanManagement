@@ -1,0 +1,38 @@
+<div class="spacer"></div>
+
+<table class="loan-application-table">
+  <thead>
+    <tr>
+      <!-- <th>Loan Application ID</th> -->
+      <th>Application Date</th>
+      <th>Loan Amount</th>
+      <th>Loan Status</th>
+      <th>User Address</th>
+      <th>Document File Name</th>
+      <th>Document Type</th>
+      <th>Nominee Name</th>
+      <th>Nominee Phone</th>
+      <th>Bank Account No</th>
+      <th>Bank Name</th>
+      <th>IFSC Code</th>
+      <th>NPA Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let application of loanApplications">
+      <!-- <td>{{ application.loanApplicationId }}</td> -->
+      <td>{{ application.applicationDate | date }}</td>
+      <td>{{ application.loanAmount }}</td>
+      <td>{{ application.loanStatus }}</td>
+      <td>{{ application.userAddress }}</td>
+      <td>{{ application.documentFileName }}</td>
+      <td>{{ application.documentType }}</td>
+      <td>{{ application.nomineeName }}</td>
+      <td>{{ application.nomineePhone }}</td>
+      <td>{{ application.bankAccountNo }}</td>
+      <td>{{ application.bankName }}</td>
+      <td>{{ application.ifscCode }}</td>
+      <td>{{ application.npaStatus }}</td>
+    </tr>
+  </tbody>
+</table>

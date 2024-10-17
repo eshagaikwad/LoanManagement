@@ -1,0 +1,153 @@
+<div class="spacer"></div>
+<div class="loan-application">
+  <h2>Apply Loan</h2>
+  <button type="button" class="fancy-button me-2" (click)="openCreditScoreModal(loanApplicationModal)">
+    Click Here To Apply
+  </button>
+  <button class="fancy-button" (click)="clickme()">Back to Dashboard</button>
+</div>
+
+<!-- Loan Application Modal -->
+<ng-template #loanApplicationModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Loan Application Form</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="loanApplicationForm" (ngSubmit)="submitLoanApplication()">
+      <!-- Form Fields -->
+      <div class="mb-3">
+        <label for="loanAmount" class="form-label">Loan Amount</label>
+        <input type="number" id="loanAmount" formControlName="LoanAmount" class="form-control" required />
+        
+        <div *ngIf="loanApplicationForm.get('LoanAmount')?.invalid && loanApplicationForm.get('LoanAmount')?.touched" class="text-danger">
+          <div *ngIf="loanApplicationForm.get('LoanAmount')?.errors?.['required']">
+            Loan Amount is required.
+          </div>
+          <div *ngIf="!loanApplicationForm.get('LoanAmount')?.errors?.['required'] && loanApplicationForm.get('LoanAmount')?.value < 1000">
+            Loan Amount must be at least 1000.
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="userAddress" class="form-label">User Address</label>
+        <input type="text" id="userAddress" formControlName="UserAddress" class="form-control" required />
+        <div *ngIf="loanApplicationForm.get('UserAddress')?.invalid && loanApplicationForm.get('UserAddress')?.touched" class="text-danger">
+          User Address is required and must be at least 10 characters long.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="nomineeName" class="form-label">Nominee Name</label>
+        <input type="text" id="nomineeName" formControlName="NomineeName" class="form-control" required />
+        <div *ngIf="loanApplicationForm.get('NomineeName')?.invalid && loanApplicationForm.get('NomineeName')?.touched" class="text-danger">
+          Nominee Name is required and must contain only alphabets.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="nomineePhone" class="form-label">Nominee Phone</label>
+        <input type="tel" id="nomineePhone" formControlName="NomineePhone" class="form-control" required pattern="^[0-9]{10}$" />
+        <div *ngIf="loanApplicationForm.get('NomineePhone')?.invalid && loanApplicationForm.get('NomineePhone')?.touched" class="text-danger">
+          Nominee Phone is required and must be a valid 10-digit number.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="bankAccountNo" class="form-label">Bank Account No</label>
+        <input type="text" id="bankAccountNo" formControlName="BankAccountNo" class="form-control" required pattern="^[0-9]{9,18}$" />
+        <div *ngIf="loanApplicationForm.get('BankAccountNo')?.invalid && loanApplicationForm.get('BankAccountNo')?.touched" class="text-danger">
+          Bank Account No is required and must be between 9 to 18 digits.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="bankName" class="form-label">Bank Name</label>
+        <input type="text" id="bankName" formControlName="BankName" class="form-control" required />
+        <div *ngIf="loanApplicationForm.get('BankName')?.invalid && loanApplicationForm.get('BankName')?.touched" class="text-danger">
+          Bank Name is required and must be at least 3 characters long.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="ifscCode" class="form-label">IFSC Code</label>
+        <input type="text" id="ifscCode" formControlName="IFSCCode" class="form-control" required pattern="^[A-Z]{4}0[A-Z0-9]{6}$" />
+        <div *ngIf="loanApplicationForm.get('IFSCCode')?.invalid && loanApplicationForm.get('IFSCCode')?.touched" class="text-danger">
+          IFSC Code is required and must be in the format ABCD0123456.
+        </div>
+      </div>
+
+      <!-- //upload document1 -->
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Upload Document</label>
+        <input type="file" id="formFile" (change)="onFileSelected($event,1)" class="form-control" required />
+        <div *ngIf="selectedFile1 && !isFileAccepted(selectedFile1)" class="text-danger">
+           File types other than PNG are not allowed.
+        </div>
+        <div *ngIf="selectedFile1" class="mt-2">Selected file: {{ selectedFile1.name }}</div>
+      </div>
+
+       <!-- Document Preview Section for Document 1 -->
+<div class="mb-3" *ngIf="documentUrl1">
+  <label for="documentPreview1" class="form-label">Document Preview 1</label>
+  <div *ngIf="isImage(documentUrl1); else nonImageContent1">
+    <img [src]="documentUrl1" alt="Document Preview" class="img-fluid" />
+  </div>
+  <ng-template #nonImageContent1>
+    <a [href]="documentUrl1" target="_blank" class="btn btn-secondary">View Document</a>
+  </ng-template>
+</div>
+
+
+       <!-- //document type1 -->
+       <div class="mb-3">
+        <label for="documentType1" class="form-label">Document Type</label>
+        <input type="text" id="documentType1" formControlName="DocumentType1" class="form-control" required />
+        <div *ngIf="loanApplicationForm.get('DocumentType1')?.invalid && loanApplicationForm.get('DocumentType1')?.touched" class="text-danger">
+          Document Type is required.
+        </div>
+      </div>
+
+      <!-- //upload document2 -->
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Upload Document</label>
+        <input type="file" id="formFile" (change)="onFileSelected($event,2)" class="form-control" required />
+        <div *ngIf="selectedFile2 && !isFileAccepted(selectedFile2)" class="text-danger">
+           File types other than PNG are not allowed.
+        </div>
+        <div *ngIf="selectedFile2" class="mt-2">Selected file: {{ selectedFile2.name }}</div>
+      </div>
+
+
+
+
+
+      <!-- //document type2 -->
+      <div class="mb-3">
+        <label for="documentType2" class="form-label">Document Type</label>
+        <input type="text" id="documentType2" formControlName="DocumentType2" class="form-control" required />
+        <div *ngIf="loanApplicationForm.get('DocumentType2')?.invalid && loanApplicationForm.get('documentType2')?.touched" class="text-danger">
+          Document Type is required.
+        </div>
+      </div>
+
+
+
+
+<!-- Document Preview Section for Document 2 -->
+<div class="mb-3" *ngIf="documentUrl2">
+  <label for="documentPreview2" class="form-label">Document Preview 2</label>
+  <div *ngIf="isImage(documentUrl2); else nonImageContent2">
+    <img [src]="documentUrl2" alt="Document Preview" class="img-fluid" />
+  </div>
+  <ng-template #nonImageContent2>
+    <a [href]="documentUrl2" target="_blank" class="btn btn-secondary">View Document</a>
+  </ng-template>
+</div>
+
+
+      <button type="submit" class="btn btn-primary" [disabled]="loanApplicationForm.invalid">Submit</button>
+    </form>
+  </div>
+</ng-template>

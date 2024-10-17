@@ -1,0 +1,61 @@
+/* Container for centering the content */
+.container {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    min-height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4; /* Light gray background */
+    text-align: center; /* Center text */
+    padding: 20px; /* Padding for the container */
+    box-sizing: border-box; /* Include padding in total height/width */
+  }
+  
+  /* Style for the main heading */
+  h1 {
+    font-size: 4rem; /* Large font size */
+    color: #ff4757; /* Bright red color */
+    margin: 0; /* Remove default margin */
+  }
+  
+  /* Style for the paragraph */
+  p {
+    font-size: 1.5rem; /* Medium font size */
+    color: #333; /* Dark gray color */
+    margin: 1rem 0; /* Margin above and below */
+  }
+  
+  /* Styling for the home button */
+  a.home-link {
+    font-size: 1.2rem; /* Medium font size */
+    color: #fff; /* White text color */
+    background-color: #ff6b81; /* Button background color */
+    padding: 12px 25px; /* Button padding */
+    text-decoration: none; /* Remove underline */
+    border-radius: 25px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Hover effects for the button */
+  a.home-link:hover {
+    background-color: #ff4757; /* Darker red on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+  }
+  
+  /* Responsive typography for smaller screens */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem; /* Smaller font size */
+    }
+  
+    p {
+      font-size: 1rem; /* Smaller paragraph font */
+    }
+  
+    a.home-link {
+      font-size: 1rem; /* Adjusted button font size */
+      padding: 10px 20px; /* Adjusted button padding */
+    }
+  }
+  

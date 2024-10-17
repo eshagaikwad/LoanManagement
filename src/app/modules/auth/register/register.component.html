@@ -1,0 +1,99 @@
+<div class="register-container">
+  <div class="register-box">
+    <h2>User Registration</h2>
+    <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+
+      <!-- Email -->
+      <div class="input-group" [ngClass]="{'error': userEmail.invalid && userEmail.touched}">
+        <input 
+          type="email" 
+          placeholder="Email" 
+          [(ngModel)]="newRegister.userEmail" 
+          name="userEmail"  
+          required
+          #userEmail="ngModel"
+          pattern="[a-zA-Z0-9._%+-]{2,}&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+          title="Email must be in the format 'name&#64;domain.com'"
+        >
+        <div class="error-message" *ngIf="userEmail.invalid && userEmail.touched">
+          <span *ngIf="userEmail.errors?.['required']">Email is required.</span>
+          <span *ngIf="userEmail.errors?.['email']">Invalid email format.</span>
+          <span *ngIf="userEmail.errors?.['pattern']">Email must follow 'name&#64;domain.com' format.</span>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="input-group" [ngClass]="{'error': userPhone.invalid && userPhone.touched}">
+        <input 
+          type="text" 
+          placeholder="Phone no." 
+          [(ngModel)]="newRegister.userPhone" 
+          name="userPhone"  
+          required
+          pattern="^[0-9]{10}$"
+          #userPhone="ngModel"
+        >
+        <div class="error-message" *ngIf="userPhone.invalid && userPhone.touched">
+          <span *ngIf="userPhone.errors?.['required']">Phone number is required.</span>
+          <span *ngIf="userPhone.errors?.['pattern']">Phone number must be 10 digits.</span>
+        </div>
+      </div>
+
+      <!-- Username -->
+      <div class="input-group" [ngClass]="{'error': userName.invalid && userName.touched}">
+        <input 
+          type="text" 
+          placeholder="Username" 
+          [(ngModel)]="newRegister.userName" 
+          name="userName" 
+          required
+          minlength="4"
+          #userName="ngModel"
+        >
+        <div class="error-message" *ngIf="userName.invalid && userName.touched">
+          <span *ngIf="userName.errors?.['required']">Username is required.</span>
+          <span *ngIf="userName.errors?.['minlength']">Username must be at least 4 characters long.</span>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="input-group" [ngClass]="{'error': userPassword.invalid && userPassword.touched}">
+        <input 
+          type="password" 
+          placeholder="Password" 
+          [(ngModel)]="newRegister.userPassword" 
+          name="userPassword"  
+          required
+          minlength="6"
+          pattern="^(?=.*[A-Z])(?=.*[!&#64;#$&*]).{6,}$"
+          #userPassword="ngModel"
+        >
+        <div class="error-message" *ngIf="userPassword.invalid && userPassword.touched">
+          <span *ngIf="userPassword.errors?.['required']">Password is required.</span>
+          <span *ngIf="userPassword.errors?.['minlength']">Password must be at least 6 characters long.</span>
+          <span *ngIf="userPassword.errors?.['pattern']">
+            Password must contain at least one uppercase letter and one special character (!&#64;#$&*).
+          </span>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="input-group">
+        <button type="submit" [disabled]="registerForm.invalid">Register</button>
+      </div>
+
+      <!-- Footer -->
+      <div class="form-footer">
+        <p>Already have an account? <a routerLink="/login">Login here</a></p>
+      </div>
+      <div class="text-center mt-4">
+        <button 
+            routerLink="/home" 
+            class="btn btn-secondary" 
+            style="background-color: #6c757d; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Back to Dashboard
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

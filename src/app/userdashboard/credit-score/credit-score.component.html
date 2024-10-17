@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand"  routerLink="/home">LoanHub</a>
+    <div class="navbar-collapse collapse justify-content-end">
+      <div class="navbar-text me-3">
+        <i class="fas fa-user"></i> 
+        Welcome, {{ userName }}!
+      </div>
+      <button class="btn btn-outline-light" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<h2>Credit Score Calculator</h2>
+<form #creditForm="ngForm" (ngSubmit)="calculateScore()">
+  <div class="form-group mb-3">
+    <label for="income">Monthly Income ($)</label>
+    <input type="number" class="form-control" id="income" name="income" [(ngModel)]="income" required placeholder="Enter your monthly income" />
+  </div>
+  
+  <div class="form-group mb-3">
+    <label for="debt">Outstanding Debt ($)</label>
+    <input type="number" class="form-control" id="debt" name="debt" [(ngModel)]="debt" required placeholder="Enter your outstanding debt" />
+  </div>
+  
+  <div class="form-group mb-3">
+    <label for="history">Credit History (Years)</label>
+    <input type="number" class="form-control" id="history" name="history" [(ngModel)]="history" required placeholder="Enter your credit history in years" />
+  </div>
+  
+  <div class="form-group mb-3">
+    <label for="loanAmount">Loan Amount ($)</label>
+    <input type="number" class="form-control" id="loanAmount" name="loanAmount" [(ngModel)]="loanAmount" required placeholder="Enter the loan amount" />
+  </div>
+  
+  <button type="submit" class="btn btn-success w-100" [disabled]="creditForm.invalid">Calculate Credit Score</button>
+  
+  <div class="text-center mt-4">
+    <button routerLink="/dashboard" class="btn btn-secondary">Back to Dashboard</button>
+  </div>
+</form>
+
+<div *ngIf="creditScore !== null" class="mt-3">
+  <h5>Your Credit Score: {{ creditScore }}</h5>
+  <p>Based on your inputs, your estimated credit score is calculated using a simplified formula.</p>
+</div>

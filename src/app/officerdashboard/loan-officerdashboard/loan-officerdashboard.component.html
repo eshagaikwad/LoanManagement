@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand"  routerLink="/home">LoanHub</a>
+    <div class="navbar-collapse collapse justify-content-end">
+      <div class="navbar-text me-3">
+        <i class="fas fa-user"></i> 
+        Welcome, {{ userName }}!
+      </div>
+      <button class="btn btn-outline-light" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+<div class="container mt-5">
+  <h2>Loan Officer Dashboard</h2>
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card text-center">
+              <div class="card-body">
+                  <h5 class="card-title">View Applications</h5>
+                  <p class="card-text">Check all loan applications.</p>
+                  <a routerLink="/officer/applications" class="btn btn-primary">View Applications</a>
+              </div>
+          </div>
+      </div>
+      <!-- <div class="col-md-4">
+          <div class="card text-center">
+              <div class="card-body">
+                  <h5 class="card-title">View Repayment Status</h5>
+                  <p class="card-text">Check the repayment status of loans.</p>
+                  <a routerLink="/officer/repayment-status" class="btn btn-primary">View Repayment Status</a>
+              </div>
+          </div>
+      </div> -->
+      <!-- <div class="col-md-4">
+          <div class="card text-center">
+              <div class="card-body">
+                  <h5 class="card-title">View Collateral</h5>
+                  <p class="card-text">View collateral details for loans.</p>
+                  <a routerLink="/officer/collateral" class="btn btn-primary">View Collateral</a>
+              </div>
+          </div>
+      </div> -->
+      <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Upload Analytics</h5>
+                <p class="card-text">Upload Analytics details for loans.</p>
+                <a routerLink="/officer/upload-analytics" class="btn btn-primary">Upload Details</a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

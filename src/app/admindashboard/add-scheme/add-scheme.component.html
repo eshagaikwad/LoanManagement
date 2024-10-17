@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand"  routerLink="/home">LoanHub</a>
+    <div class="navbar-collapse collapse justify-content-end">
+      <div class="navbar-text me-3">
+        <i class="fas fa-user"></i> 
+        Welcome, {{ userName }}!
+      </div>
+      <button class="btn btn-outline-light" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container mt-2">
+  <h2 class="text-center mb-4">Manage Loan Schemes</h2>
+
+  <form [formGroup]="loanSchemeForm" (ngSubmit)="onSubmit()" class="border rounded p-4 shadow">
+    <h4 class="text-primary mb-3">{{ selectedLoanSchemeId ? 'Edit Loan Scheme' : 'Create New Loan Scheme' }}</h4>
+    
+    <div class="form-group mb-3">
+      <label for="loanSchemeName">Loan Scheme Name</label>
+      <input type="text" class="form-control" id="loanSchemeName" formControlName="loanSchemeName" />
+      <div *ngIf="loanSchemeForm.get('loanSchemeName')?.invalid && submitted" class="text-danger">
+        Loan Scheme Name is required.
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="loanType">Loan Type</label>
+      <input type="text" class="form-control" id="loanType" formControlName="loanType" />
+      <div *ngIf="loanSchemeForm.get('loanType')?.invalid && submitted" class="text-danger">
+        Loan Type is required.
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="maxAmount">Maximum Amount</label>
+      <input type="number" class="form-control" id="maxAmount" formControlName="maxAmount" />
+      <div *ngIf="loanSchemeForm.get('maxAmount')?.invalid && submitted" class="text-danger">
+        Valid Maximum Amount is required.
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="interestRate">Interest Rate</label>
+      <input type="number" class="form-control" id="interestRate" formControlName="interestRate" />
+      <div *ngIf="loanSchemeForm.get('interestRate')?.invalid && submitted" class="text-danger">
+        Valid Interest Rate is required.
+      </div>
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="tenure">Tenure (months)</label>
+      <input type="number" class="form-control" id="tenure" formControlName="tenure" />
+      <div *ngIf="loanSchemeForm.get('tenure')?.invalid && submitted" class="text-danger">
+        Valid Tenure is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg w-100">{{ selectedLoanSchemeId ? 'Update Loan Scheme' : 'Create Loan Scheme' }}</button>
+    
+    <div *ngIf="errorMessage" class="text-danger mt-3">{{ errorMessage }}</div>
+    <div *ngIf="successMessage" class="text-success mt-3">{{ successMessage }}</div>
+  </form>
+
+  <h3 class="mt-5 text-center">Existing Loan Schemes</h3>
+  <ul class="list-group mt-4">
+      <li *ngFor="let scheme of activeLoanSchemes" class="list-group-item d-flex justify-content-between align-items-center bg-light border rounded mb-2">
+          <div>
+              <strong>{{ scheme.loanSchemeName }}</strong><br />
+              <span class="text-muted">Type: {{ scheme.loanType }}</span><br />
+              <span class="text-muted">Max Amount: {{ scheme.maxAmount }}</span><br />
+              <span class="text-muted">Interest Rate: {{ scheme.interestRate }}%</span><br />
+              <span class="text-muted">Tenure: {{ scheme.tenure }} months</span>
+          </div>
+          <div>
+              <button class="btn btn-warning btn-sm me-2" (click)="selectLoanScheme(scheme)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteLoanScheme(scheme.loanSchemeId)">Delete</button>
+          </div>
+      </li>
+  </ul>
+  <div class="text-center mt-4">
+    <button 
+        routerLink="/admin" 
+        class="btn btn-secondary" 
+        style="background-color: #6c757d; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+        Back to Dashboard
+    </button>
+  </div>
+</div>
+
+

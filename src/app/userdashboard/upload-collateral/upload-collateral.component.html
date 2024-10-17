@@ -1,0 +1,52 @@
+<div class="collateral-container">
+    <h3>Upload Collateral Documents</h3>
+  
+    <form [formGroup]="collateralForm" (ngSubmit)="submitCollateral()">
+      <div class="form-group">
+        <label for="documentType">Document Type</label>
+        <select id="documentType" formControlName="documentType" class="form-control" required>
+          <option value="">Select Document Type</option>
+          <option value="ID Proof">ID Proof</option>
+          <option value="Income Proof">Income Proof</option>
+          <option value="Property Document">Property Document</option>
+        </select>
+        <div *ngIf="collateralForm.get('documentType')?.invalid && collateralForm.get('documentType')?.touched" class="text-danger">
+          Document type is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="fileUpload">Upload Document (PNG Only)</label>
+        <input type="file" id="fileUpload" (change)="onFileSelected($event)" class="form-control" required />
+        <div *ngIf="collateralForm.get('fileName')?.invalid && collateralForm.get('fileName')?.touched" class="text-danger">
+          File name is required.
+        </div>
+      </div>
+  
+      <input formControlName="fileName" hidden />
+  
+      <div *ngIf="documentUrl && isImage(documentUrl)">
+        <h4>Uploaded Document Preview:</h4>
+        <img [src]="documentUrl" alt="Selected Document" class="img-thumbnail" />
+      </div>
+  
+      <div *ngIf="documentUrl && !isImage(documentUrl)">
+        <h4>Uploaded Document Preview:</h4>
+        <p>You can download it <a [href]="documentUrl" target="_blank">here</a>.</p>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">
+        Submit Collateral
+      </button>
+      <div class="text-center mt-4">
+        <button 
+            routerLink="/dashboard" 
+            class="btn btn-secondary" 
+            style="background-color: #6c757d; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Back to Dashboard
+        </button>
+    </div>
+
+    </form>
+  </div>
+  

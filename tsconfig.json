@@ -28,5 +28,13 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "include": [ 
+    "src/**/*" // Adjust this according to your project structure 
+  ], 
+  "exclude": [ 
+    "node_modules",                       // Exclude node_modules from compilation 
+    "**/*.spec.ts"                        // Exclude test files 
+  ]
+
 }

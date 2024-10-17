@@ -1,0 +1,71 @@
+.input-group {
+  max-width: 400px; /* Adjust the width as necessary */
+  margin: 0 auto; /* Center the search box */
+}
+
+.input-group .form-control {
+  border: 1px solid #ccc; /* Customize border color */
+  border-radius: 0.5rem; /* Slightly round the corners */
+}
+.navbar-text i {
+  margin-right: 5px; /* Add some space between the icon and text */
+  font-size: 1.2em;  /* Adjust icon size */
+}
+.input-group .input-group-text {
+  background-color: #007bff; /* Change background color of the search icon */
+  color: white; /* Change icon color */
+  border: none; /* Remove border */
+  border-radius: 0.5rem 0 0 0.5rem; /* Round the left corners */
+}
+
+.input-group .form-control:focus {
+  border-color: #007bff; /* Change border color on focus */
+  box-shadow: 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add focus shadow */
+}
+
+
+.table {
+    margin-top: 20px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .table thead {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  .table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.2); /* Add hover effect */
+  }
+  
+  .alert-info {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  h2 {
+    font-weight: bold;
+    color: #007bff;
+  }
+  .spacer
+  {
+    margin-top: 89px;
+  }
+  .btn-secondary {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .mt-4 {
+    margin-top: 2rem;
+  }
+  

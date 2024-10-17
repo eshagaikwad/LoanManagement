@@ -1,0 +1,35 @@
+
+<div class="spacer"></div> <!-- Spacer div -->
+
+<!-- emi-calculator.component.html -->
+<section class="emi-calculator-section">
+    <h2>EMI Calculator</h2>
+
+    <div class="calculator-form">
+        <!-- Loan Amount -->
+        <div class="form-group">
+            <label for="loanAmount">Loan Amount (₹): {{ loanAmount | currency: 'INR':'symbol' }}</label>
+            <input type="range" id="loanAmount" [(ngModel)]="loanAmount" min="10000" max="10000000" step="10000" />
+            <span>{{ loanAmount | currency: 'INR':'symbol' }}</span>
+        </div>
+
+        <!-- Interest Rate -->
+        <div class="form-group">
+            <label for="interestRate">Interest Rate (%): {{ interestRate }}%</label>
+            <input type="range" id="interestRate" [(ngModel)]="interestRate" min="1" max="20" step="0.1" />
+            <span>{{ interestRate }}%</span>
+        </div>
+
+        <!-- Loan Tenure -->
+        <div class="form-group">
+            <label for="loanTenure">Loan Tenure (Years): {{ loanTenure }} years</label>
+            <input type="range" id="loanTenure" [(ngModel)]="loanTenure" min="1" max="30" step="1" />
+            <span>{{ loanTenure }} years</span>
+        </div>
+
+        <!-- EMI Result -->
+        <div class="result" *ngIf="emi">
+            <h3>Monthly EMI: {{ emi | currency: 'INR':'symbol' }}</h3>
+        </div>
+    </div>
+</section>

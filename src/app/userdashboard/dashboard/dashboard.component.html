@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand"  routerLink="/home">LoanHub</a>
+    <div class="navbar-collapse collapse justify-content-end">
+      <div class="navbar-text me-3">
+        <i class="fas fa-user"></i> 
+        Welcome, {{ userName }}!
+      </div>
+      <button class="btn btn-outline-light" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+    <div class="spacer"></div>
+    <!-- The rest of your dashboard content -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">View Eligibility</h5>
+            <p class="card-text">Check if you are eligible for loans.</p>
+            <a routerLink="/dashboard/eligibility" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">View Loan Scheme</h5>
+            <p class="card-text">See available loan schemes and offers.</p>
+            <a routerLink="/dashboard/loan-scheme" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Repayment</h5>
+            <p class="card-text">Manage your loan repayments and schedules.</p>
+            <a routerLink="/dashboard/repayment" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="col-md-4 mt-2">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Loan Status</h5>
+            <p class="card-text">Manage your loan Status and schedules.</p>
+            <a routerLink="/dashboard/loanStatus" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mt-2">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Loan Calculator</h5>
+            <p class="card-text">Manage your loan Status and schedules.</p>
+            <a routerLink="/dashboard/loanCalculator" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mt-2">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Credit Score</h5>
+            <p class="card-text">Manage your loan Status and schedules.</p>
+            <a routerLink="/dashboard/creditScore" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  

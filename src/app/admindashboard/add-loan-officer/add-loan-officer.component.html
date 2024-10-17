@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">LoanHub</a>
+    <div class="navbar-collapse collapse justify-content-end">
+      <div class="navbar-text me-3">
+        <i class="fas fa-user"></i> 
+        Welcome, {{ userName }}!
+      </div>
+      <button class="btn btn-outline-light" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h2 class="text-center">Add Loan Officer</h2>
+  
+  <form [formGroup]="loanOfficerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="loanOfficerName">Loan Officer Name</label>
+      <input 
+        type="text" 
+        id="loanOfficerName" 
+        formControlName="loanOfficerName" 
+        class="form-control" 
+        placeholder="Enter Loan Officer Name" 
+        [required]="true" 
+      />
+      <div *ngIf="loanOfficerForm.get('loanOfficerName')?.invalid && (loanOfficerForm.get('loanOfficerName')?.touched || loanOfficerForm.get('loanOfficerName')?.dirty)" class="text-danger">
+        <small *ngIf="loanOfficerForm.get('loanOfficerName')?.errors?.['required']">Loan Officer Name is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="loanOfficerEmail">Email</label>
+      <input 
+        type="email" 
+        id="loanOfficerEmail" 
+        formControlName="loanOfficerEmail" 
+        class="form-control" 
+        placeholder="Enter Loan Officer Email" 
+        [required]="true" 
+      />
+      <div *ngIf="loanOfficerForm.get('loanOfficerEmail')?.invalid && (loanOfficerForm.get('loanOfficerEmail')?.touched || loanOfficerForm.get('loanOfficerEmail')?.dirty)" class="text-danger">
+        <small *ngIf="loanOfficerForm.get('loanOfficerEmail')?.errors?.['required']">Email is required.</small>
+        <small *ngIf="loanOfficerForm.get('loanOfficerEmail')?.errors?.['email']">Please enter a valid email.</small>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="loanOfficerPassword">Password</label>
+      <input 
+        type="password" 
+        id="loanOfficerPassword" 
+        formControlName="loanOfficerPassword" 
+        class="form-control" 
+        placeholder="Enter Password" 
+        [required]="true" 
+      />
+      <div *ngIf="loanOfficerForm.get('loanOfficerPassword')?.invalid && (loanOfficerForm.get('loanOfficerPassword')?.touched || loanOfficerForm.get('loanOfficerPassword')?.dirty)" class="text-danger">
+        <small *ngIf="loanOfficerForm.get('loanOfficerPassword')?.errors?.['required']">Password is required.</small>
+        <small *ngIf="loanOfficerForm.get('loanOfficerPassword')?.errors?.['minlength']">Password must be at least 6 characters long.</small>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="loanOfficerPhone">Phone Number</label>
+      <input 
+        type="tel" 
+        id="loanOfficerPhone" 
+        formControlName="loanOfficerPhone" 
+        class="form-control" 
+        placeholder="Enter Phone Number" 
+        [required]="true" 
+      />
+      <div *ngIf="loanOfficerForm.get('loanOfficerPhone')?.invalid && (loanOfficerForm.get('loanOfficerPhone')?.touched || loanOfficerForm.get('loanOfficerPhone')?.dirty)" class="text-danger">
+        <small *ngIf="loanOfficerForm.get('loanOfficerPhone')?.errors?.['required']">Phone Number is required.</small>
+        <small *ngIf="loanOfficerForm.get('loanOfficerPhone')?.errors?.['minlength']">Phone Number must be at least 10 digits long.</small>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message text-danger">{{ errorMessage }}</div>
+    <div *ngIf="successMessage" class="success-message text-success">{{ successMessage }}</div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="loanOfficerForm.invalid">Add Loan Officer</button>
+
+    <div class="text-center mt-4">
+      <button routerLink="/admin" class="btn btn-secondary">Back to Dashboard</button>
+    </div>
+  </form>
+</div>

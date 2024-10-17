@@ -1,0 +1,156 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">LoanHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#hero">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Our Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#loan-schemes">Our Schemes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#how-it-works">How It Works</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacts">Contact Us</a> 
+                </li>
+              
+            </ul>
+            <div class="d-flex"> 
+                <a routerLink="/lend" class="btn btn-secondary me-2">Lend</a>
+                <a routerLink="/register" class="btn btn-secondary me-2">Borrow</a>
+                <a routerLink="/login" class="btn btn-primary me-2">Login</a>
+           
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero-section" id="hero">
+</div>
+
+<section class="features-section" id="features">
+    <h2>Our Features</h2>
+    <div class="features">
+        <div class="feature-card" *ngFor="let feature of features" [@fadeInOnScroll]>
+            <img [src]="feature.image" alt="feature">
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="loan-schemes-section" id="loan-schemes">
+    <h2>Explore Our Loan Schemes</h2>
+    <div class="loan-schemes">
+        <div class="loan-scheme-card">
+            <img src="assets/images/loan.png" alt="Personal Loans" class="loan-scheme-icon">
+            <h3>Personal Loans</h3>
+            <p>Flexible and affordable loans for personal needs. Get quick approvals and easy repayment plans.</p>
+            <a href="/personal-loan" class="cta-button">Learn More</a>
+        </div>
+        <div class="loan-scheme-card">
+            <img src="assets/images/home-loan.png" alt="Home Equity Loans" class="loan-scheme-icon">
+            <h3>Home Loans</h3>
+            <p>Unlock the value of your home with our competitive home equity loans.</p>
+            <a href="/home-equity-loan" class="cta-button">Learn More</a>
+        </div>
+        <div class="loan-scheme-card">
+            <img src="assets/images/business-loan.png" alt="Business Loans" class="loan-scheme-icon">
+            <h3>Business Loans</h3>
+            <p>Fuel your business growth with our tailored business loan solutions.</p>
+            <a href="/business-loan" class="cta-button">Learn More</a>
+        </div>
+        <div class="loan-scheme-card">
+            <img src="assets/images/student-loan.png" alt="Student Loans" class="loan-scheme-icon">
+            <h3>Student Loans</h3>
+            <p>Invest in your future with our affordable student loan options.</p>
+            <a href="/student-loan" class="cta-button">Learn More</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="how-it-works-section" id="how-it-works" [@slideInOnScroll]>
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps-container">
+        <div class="step-card" *ngFor="let step of steps">
+            <div class="step-icon">
+                <img [src]="step.icon" alt="{{ step.title }} icon">
+            </div>
+            <div class="step-content">
+                <h3 class="step-title">{{ step.title }}</h3>
+                <p class="step-description">{{ step.description }}</p>
+            </div>
+            <span class="step-number">{{ step.number }}</span>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="testimonials-section" id="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonials" [@slideInTestimonials]>
+        <div class="testimonial" *ngFor="let testimonial of testimonials">
+            <div class="testimonial-card">
+                <p class="quote">“{{ testimonial.quote }}”</p>
+                <h4 class="author">- {{ testimonial.name }}</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contacts">
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>About Loans</h4>
+                <p>At LoanHub, we offer a variety of loan options tailored to your needs. Whether you're looking for personal loans, home equity loans, or business financing, we provide transparent and flexible solutions to help you achieve your financial goals.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="#features">Our Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><strong>Email:</strong> support&#64;loanhub.com</p>
+                <p><strong>Phone:</strong> +91 8104123067</p>
+                <p><strong>Address:</strong> 123 Loan Street, Andheri West, LoanHub</p>
+            </div>
+            <div class="footer-loan-types">
+                <h4>Loan Types</h4>
+                <ul>
+                    <li>Personal Loans</li>
+                    <li>Home Equity Loans</li>
+                    <li>Auto Loans</li>
+                    <li>Business Loans</li>
+                    <li>Student Loans</li>
+                    <li>Debt Consolidation</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 LoanHub. All rights reserved.</p>
+            <p>LoanHub is committed to responsible lending practices.</p>
+        </div>
+    </footer>
+</section>
