@@ -11,8 +11,23 @@
   </div>
 </nav>
 
+
+<div class="left">
+  <button routerLink="/admin" class="btn btn-primary">
+    <span class="material-icons me-2">arrow_back</span> Back
+  </button>
+</div>
+
+
 <div class="container mt-5">
-  <h2 class="text-center">Add Loan Officer</h2>
+  <div class="row align-items-center mb-4">
+    
+    <div class="col text-center">
+      <h2 class="heading m-0">Add Loan Officer</h2>
+    </div>
+  </div>
+
+
   
   <form [formGroup]="loanOfficerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -83,8 +98,5 @@
   
     <button type="submit" class="btn btn-primary" [disabled]="loanOfficerForm.invalid">Add Loan Officer</button>
 
-    <div class="text-center mt-4">
-      <button routerLink="/admin" class="btn btn-secondary">Back to Dashboard</button>
-    </div>
   </form>
 </div>
